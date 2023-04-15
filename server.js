@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
+// const favicon = require('serve-favicon');
 const logger = require('morgan');
 
 require('dotenv').config();
@@ -14,8 +14,7 @@ app.use(logger('dev'));
 // Content-Type: 'application/json'
 // and put that data on req.body
 app.use(express.json());
-app.use(favicon(path.join(__dirname, 'build', 'favicon.ico')));
-app.use(express.static(path.join(__dirname, 'build')));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 // middleware that adds the user object from a JWT to req.user
 app.use(require('./config/checkToken'));
@@ -32,7 +31,7 @@ app.use('/api/orders', ensureLoggedIn, require('./routes/api/orders'));
 // "catch-all" route that will match all GET requests
 // that don't match an API route defined above
 app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });
 
 const port = process.env.PORT || 3001;
