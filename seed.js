@@ -1,0 +1,117 @@
+require('dotenv').config();
+require('./config/database');
+
+const Category = require('./models/category');
+const Item = require('./models/item');
+
+// Pattern:  IIFE
+(async function() {
+
+  await Category.deleteMany({});
+  const categories = await Category.create([
+    {name: 'Bronzer', sortOrder: 10},
+    {name: 'Blush', sortOrder: 20},
+    {name: 'Lip Liner', sortOrder: 30},
+    {name: 'Mascara', sortOrder: 40},
+    {name: 'Eye Shadow', sortOrder: 50},
+    {name: 'Eyeliner', sortOrder: 60},
+    {name: 'Lipstick', sortOrder: 70},
+  ]);
+
+  await Item.deleteMany({});
+  const items = await Item.create([
+    {name: 'Maybelline Face Studio Master Hi-Light Light Booster Bronzer', 
+        description:'', 
+        category: categories[0], 
+        price: 5.95},
+    {name: 'Turkey Sandwich', 
+        description:'' , 
+        category: categories[0], 
+        price: 6.95},
+    {name: 'Hot Dog', 
+        description:'' , 
+        category: categories[0], 
+        price: 3.95},
+    {name: 'Crab Plate', 
+        description:'' , 
+        category: categories[1], 
+        price: 14.95},
+    {name: 'Fried Shrimp', 
+        description:'' , 
+        category: categories[1], 
+        price: 13.95},
+    {name: 'Whole Lobster', 
+        description:'' , 
+        category: categories[1], 
+        price: 25.95},
+    {name: 'Taco', 
+        description:'' , 
+        category: categories[2], 
+        price: 1.95},
+    {name: 'Burrito', 
+        description:'' , 
+        category: categories[2], 
+        price: 4.95},
+    {name: 'Pizza Slice', 
+        description:'' , 
+        category: categories[3], 
+        price: 3.95},
+    {name: 'Spaghetti', 
+        description:'' , 
+        category: categories[3], 
+        price: 7.95},
+    {name: 'Garlic Bread', 
+        description:'' , 
+        category: categories[3], 
+        price: 1.95},
+    {name: 'French Fries', 
+        description:'' , 
+        category: categories[4], 
+        price: 2.95},
+    {name: 'Green Salad', 
+        description:'' , 
+        category: categories[4], 
+        price: 3.95},
+    {name: 'Ice Cream', 
+        description:'' , 
+        category: categories[5], 
+        price: 1.95},
+    {name: 'Cup Cake', 
+        description:'' , 
+        category: categories[5], 
+        price: 0.95},
+    {name: 'Custard', 
+        description:'' , 
+        category: categories[5], 
+        price: 2.95},
+    {name: 'Strawberry Shortcake', 
+        description:'' , 
+        category: categories[5], 
+        price: 3.95},
+    {name: 'Milk', 
+        description:'' , 
+        category: categories[6], 
+        price: 0.95},
+    {name: 'Coffee', 
+        description:'' , 
+        category: categories[6], 
+        price: 0.95},
+    {name: 'Mai Tai', 
+        description:'' , 
+        category: categories[6], 
+        price: 8.95},
+    {name: 'Beer', 
+        description:'' , 
+        category: categories[6], 
+        price: 3.95},
+    {name: 'Wine', 
+        description:'' , 
+        category: categories[6], 
+        price: 7.95},
+  ]);
+
+  console.log(items)
+
+  process.exit();
+
+})();
