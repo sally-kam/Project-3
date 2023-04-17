@@ -11,9 +11,9 @@ export default function NavBar({user, setUser}) {
 
   return (
     <nav>
-      <Link to="/home">Home</Link>
+      <Link to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link to="/orders/new">All Products</Link>
+      <Link to="/products">All Products</Link>
       &nbsp; | &nbsp; 
       <Link to="/orders">All Orders</Link>
       &nbsp; | &nbsp;

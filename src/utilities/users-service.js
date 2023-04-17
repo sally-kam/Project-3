@@ -10,19 +10,19 @@ export async function signUp(userData) {
   // Delegate the AJAX request to the users-api.js
   // module.
   const token = await usersAPI.signUp(userData);
-  localStorage.setItem('token', token);
+  localStorage.setProduct('token', token);
   return getUser();
 }
 
 export function getToken() {
-  // getItem will return null if the key does not exist
+  // getProduct will return null if the key does not exist
   const token = localStorage.getItem('token');
   if (!token) return null;
   // Let's check if token has expired...
   const payload = JSON.parse(atob(token.split('.')[1]));
   if (payload.exp < Date.now() / 1000) {
-    // Token has expired
-    localStorage.removeItem('token');
+    // Token has expired- remove it from localstorage
+    localStorage.removeProduct('token');
     return null;
   }
   return token;
@@ -37,14 +37,14 @@ export function getUser() {
 }
 
 export function logOut() {
-  localStorage.removeItem('token');
+  localStorage.removeProduct('token');
 }
 
 export async function login(credentials) {
   // Delegate the AJAX request to the users-api.js
   // module.
   const token = await usersAPI.login(credentials);
-  localStorage.setItem('token', token);
+  localStorage.setProduct('token', token);
   return getUser();
 }
 export function checkToken(){

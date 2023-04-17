@@ -8,7 +8,9 @@ import NavBar from '../../components/NavBar/NavBar';
 import ProductsPage from '../ProductsPage/ProductsPage';
 import OrdersPage from '../OrdersPage/OrdersPage';
 import CartPage from '../CartPage/CartPage';
-
+import ProductDetailPage from '../ProductDetailPage/ProductDetailPage';
+import HomePage from '../HomePage/Homepage';
+import { products } from '../../data';
 export default function App() {
   const [user, setUser] = useState(getUser());
   return (
@@ -19,7 +21,9 @@ export default function App() {
           <NavBar user={user} setUser={setUser}/>
           <Routes>
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
-            <Route path="/products" element={<ProductsPage user={user} setUser={setUser} />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<ProductsPage products={products} />} />
+            <Route path="/products/:productName" element={<ProductDetailPage products={products}/>} />
             <Route path="/orders" element={<OrdersPage user={user} setUser={setUser} />} />
             <Route path="/cart" element={<CartPage user={user} setUser={setUser} />} />
             <Route path="/" element={<OrdersPage user={user} setUser={setUser} />} />
