@@ -37,14 +37,14 @@ export function getUser() {
 }
 
 export function logOut() {
-  localStorage.removeProduct('token');
+  localStorage.removeItem('token');
 }
 
 export async function login(credentials) {
   // Delegate the AJAX request to the users-api.js
   // module.
   const token = await usersAPI.login(credentials);
-  localStorage.setProduct('token', token);
+  localStorage.setItem('token', token);
   return getUser();
 }
 export function checkToken(){
