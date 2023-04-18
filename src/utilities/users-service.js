@@ -10,7 +10,7 @@ export async function signUp(userData) {
   // Delegate the AJAX request to the users-api.js
   // module.
   const token = await usersAPI.signUp(userData);
-  localStorage.setProduct('token', token);
+  localStorage.setItem('token', token);
   return getUser();
 }
 
@@ -21,8 +21,8 @@ export function getToken() {
   // Let's check if token has expired...
   const payload = JSON.parse(atob(token.split('.')[1]));
   if (payload.exp < Date.now() / 1000) {
-    // Token has expired- remove it from localstorage
-    localStorage.removeProduct('token');
+    // Token has expired- remove it from local storage
+    localStorage.removeItem('token');
     return null;
   }
   return token;
