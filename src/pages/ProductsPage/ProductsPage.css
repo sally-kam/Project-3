@@ -14,11 +14,16 @@
   align-products: center;
   margin: 3vmin 2vmin;
 } */
-
+/* .ProductsPage{
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
 .Products{
   display: grid;
   gap: 100px;
   grid-template-columns: repeat(3, 1fr);
   justify-content: center;
 
-}
+} */

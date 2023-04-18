@@ -25,7 +25,7 @@ export default function App() {
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
-            <Route path="/products/:productName" element={<ProductDetailPage />} />
+            <Route path="/products/:id" element={<ProductDetailPage />} />
             <Route path="/orders" element={<OrdersPage user={user} setUser={setUser} />} />
             <Route path="/cart" element={<CartPage user={user} setUser={setUser} />} />
             <Route path="/" element={<OrdersPage user={user} setUser={setUser} />} />
