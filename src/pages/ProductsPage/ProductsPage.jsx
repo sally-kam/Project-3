@@ -6,25 +6,37 @@ import SingleProduct from '../../components/SingleProduct/SingleProduct';
 import "./ProductsPage.css"
 import CategoryList from '../../components/CategoryList/CategoryList';
 
-export default function ProductsPage() {
+export default function ProductsPage({setProduct}) {
   // If your state will ultimately be an array, ALWAYS
   // initialize to an empty array
 // const [error, setError] = useState(null);
 const [products, setProducts] = useState([]);
 const [categories, setCategories] = useState([]);
+const [filterProducts, setFilterProducts] = useState([]);
 const [activeCat, setActiveCat] = useState('');
-const categoriesRef = useRef([]);
+// const categoriesRef = useRef([]);
 
   /*-- Event Handlers --*/
   useEffect(function() {
     async function getProducts() {
       const products = await productsAPI.getAll();
-      categoriesRef.current = [...new Set(products.map(product => product.category.name))];
+      const categories = [...new Set(products.map(product => product.category.name))];
       setProducts(products);
-      setActiveCat(categoriesRef.current[0]);
+      setCategories(categories);
+      setActiveCat(categories[0]);
+      setFilterProducts(products);
     }
     getProducts();
   }, []);
+
+  function handleCategoryClick(cat) {
+    const filters = cat === "" ? products : products.filter(
+      (product) => product.category.name === cat
+    );
+    setFilterProducts(filters);
+    setActiveCat(cat);
+  }
+
 
   return (
     <>
@@ -33,25 +45,25 @@ const categoriesRef = useRef([]);
 
     <div className=" col-span-1">
       {categories.map((cat, i) =>
-    <li
+    <div
       key={i}
       className={cat === activeCat ? 'active' : ''}
-      onClick={()=> {const filters = products.filter(
-        (product) => product.category === cat
-      );
-      setFilterProducts(filters);
-      setCatPath(categories[i]);}}
-    >
+      onClick={()=> handleCategoryClick(cat)}
+      >
       {cat}
-    </li>
-  )};
+    </div>
+  )}
     </div>
 
-      <div className="grid grid-cols-3 gap-9 col-span-4">
-    {products.map((product) => 
-    <SingleProduct key={product._id} product={product} products={products}/>)}
-    
-    </div>
+    <div className="grid grid-cols-3 gap-9 col-span-4">
+  {activeCat ? filterProducts.map((product) => 
+    <SingleProduct key={product._id} product={product} products={products} setProduct={setProduct}/>)
+    :
+    products.map((product) => 
+    <SingleProduct key={product._id} product={product} products={products} setProduct={setProduct}/>)
+  }
+</div>
+
     </main>
     </>
   );

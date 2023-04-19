@@ -14,7 +14,7 @@ export default function CategoryList({ categories, activeCat, setActiveCat }) {
   // );
   return (
     <ul className="CategoryList">
-    //   {cats}
-    // </ul>
+    koko
+    </ul>
   );
 }

@@ -8,6 +8,8 @@ export default function CartPage() {
   /*-- Event Handlers --*/
 
   return (
-    <div>CartPage</div>
+    <div>
+      
+    </div>
   )
 }

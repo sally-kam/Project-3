@@ -13,8 +13,8 @@ import HomePage from '../HomePage/Homepage';
 
 export default function App() {
   const [user, setUser] = useState(getUser());
-
-
+  const [product, setProduct] = useState(null)
+  const [cart, setCart] = useState(null)
   return (
     <main className="background-color: rgb(192 132 252);"
     >
@@ -24,10 +24,10 @@ export default function App() {
           <Routes>
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
             <Route path="/" element={<HomePage />} />
-            <Route path="/products" element={<ProductsPage />} />
-            <Route path="/products/:id" element={<ProductDetailPage />} />
+            <Route path="/products" element={<ProductsPage setProduct={setProduct}/>} />
+            <Route path="/products/:id" element={<ProductDetailPage product={product}/>} />
             <Route path="/orders" element={<OrdersPage user={user} setUser={setUser} />} />
-            <Route path="/cart" element={<CartPage user={user} setUser={setUser} />} />
+            <Route path="/cart" element={<CartPage cart={cart} setCart={setCart} />} />
             <Route path="/" element={<OrdersPage user={user} setUser={setUser} />} />
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
             <Route path="/*" element={<Navigate to="/products" />} />
