@@ -8,7 +8,7 @@ export default function AuthPage({ setUser }) {
 
   return (
     <>
-    <h1>AuthPage</h1>
+    <h1>Welcome to Creative Commerce</h1>
     <main className="AuthPage">
       <div>
         <div onClick={() => setShowLogin(!showLogin)}>
