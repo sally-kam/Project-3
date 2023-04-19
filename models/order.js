@@ -72,14 +72,14 @@ orderSchema.methods.addProductToCart = async function(productId) {
 orderSchema.methods.setProductQty = function(productId, newQty) {
   // this keyword is bound to the cart (order doc)
   const cart = this;
-  // Find the line product in the cart for the menu product
-  const lineProduct = cart.lineProducts.find(lineProduct => lineProduct.product._id.equals(productId));
-  if (lineProduct && newQty <= 0) {
-    // Calling remove, removes itself from the cart.lineProducts array
-    lineProduct.remove();
-  } else if (lineProduct) {
+  // Find the line product index in the cart for the menu product
+  const lineProductIndex = cart.lineProducts.findIndex(lineProduct => lineProduct.product._id.equals(productId));
+  if (lineProductIndex !== -1 && newQty <= 0) {
+    // Remove the line product from the cart.lineProducts array
+    cart.lineProducts.splice(lineProductIndex, 1);
+  } else if (lineProductIndex !== -1) {
     // Set the new qty - positive value is assured thanks to prev if
-    lineProduct.qty = newQty;
+    cart.lineProducts[lineProductIndex].qty = newQty;
   }
   // return the save() method's promise
   return cart.save();
