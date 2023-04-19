@@ -19,20 +19,34 @@ export default function OrdersPage({ user, setUser }) {
   }, []);
 
   return (
-    <main className="grid grid-cols-2 gap-3">
-      <div>
-        List of Orders
-    <OrderList
-        orders={orders}
-        selectedOrder={selectedOrder}
-        setSelectedOrder={setSelectedOrder}
-      />
+    <main>
+      
+      <div className="text-left">
+        
+        {orders.length > 0 ? (
+          <div className="text-left grid grid-cols-3 gap-3">
+            <div className="col-start-1 col-end-2">
+            <OrderList
+              orders={orders}
+              selectedOrder={selectedOrder}
+              setSelectedOrder={setSelectedOrder}
+            />
+          </div>
+      <div className=" col-span-2">
+        {selectedOrder ? (
+          
+          <OrderDetail order={selectedOrder} />
+        ) : (
+          <p>Select an order to view its details</p>
+        )}
       </div>
-      <div>
-        Order Details
-      {/* Render the existing OrderDetail component */}
-      <OrderDetail order={selectedOrder} />
+
+          </div>
+        ) : (
+          <p className="text-xl font-bold text-center">No orders yet</p>
+        )}
       </div>
+
     </main>
   );
 }

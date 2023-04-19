@@ -1,30 +1,25 @@
 import React from 'react'
 import LineProduct from '../LineProduct/LineProduct';
-
-export default function OrderDetail({order, handleChangeQty, handleCheckout}) {
+import OrderLineProduct from '../OrderLineProduct/OrderLineProduct';
+export default function OrderDetail({order, selectedOrder}) {
     if (!order) return null;
 
-    const lineProducts = order.lineProducts.map(item =>
-      <LineProduct
-        lineItem={item}
+    const orderLineProducts = order.lineProducts.map(product =>
+      <OrderLineProduct
+        lineProduct={product}
         isPaid={order.isPaid}
-        handleChangeQty={handleChangeQty}
-        key={item._id}
+        key={product._id}
       />
     );
+    console.log("THESE ARE THE LINE PRODUCTS", orderLineProducts[0]);
     return (
         <>
-    <div className="section-heading">
-      <div>
-        {order.isPaid ?
-          <span>Order Id: {order.orderId}</span>
-          :
-          <span>No Orders Yet.</span>
-        }
-        <span>{new Date(order.updatedAt).toLocaleString()}</span>
-      </div>
-
-
+        Order Details
+    <div className="text-center">
+    <span>Order Id: {order.orderId}</span>
+    <span>{new Date(order.updatedAt).toLocaleString()}</span>
+    <div className="text-right">{orderLineProducts}</div>
+        
       
       </div>
     </>

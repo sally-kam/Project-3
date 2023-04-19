@@ -4,27 +4,32 @@ export default function LineProduct({lineProduct, isPaid, handleChangeQty}) {
 
     console.log(lineProduct)
   return (
-    <div className="border-4">
-      <div >
-        <span className="align-ctr">{lineProduct.product.name}</span>
-        <span>{lineProduct.product.price.toFixed(2)}</span>
-      </div>
+    <div className="border-4 grid grid-cols-3 gap-3">
+      
+        <img className="object-scale-down h-48 w-96" src={lineProduct.product.image}></img> 
+        <div className="text-right">
+        <div className="align-ctr">{lineProduct.product.name}</div>
+       
+        <div>Price: ${lineProduct.product.price.toFixed(2)}</div>
+      <div>
       <div className="qty" style={{ justifyContent: isPaid && 'center' }}>
         {!isPaid &&
           <button
-            className="btn-xs"
+            className="hover:scale-125"
             onClick={() => handleChangeQty(lineProduct.product._id, lineProduct.qty - 1)}
-          >−</button>
+          >➖</button>
         }
-        <span>{lineProduct.qty}</span>
+        <span>Qty: {lineProduct.qty}</span>
         {!isPaid &&
           <button
-            className="btn-xs"
+            className="hover:scale-125"
             onClick={() => handleChangeQty(lineProduct.product._id, lineProduct.qty + 1)}
-          >+</button>
+          > ➕ </button>
         }
       </div>
-      <div className="ext-price">${lineProduct.extPrice.toFixed(2)}</div>
+      </div>
+      <div className="ext-price">Total: ${lineProduct.extPrice.toFixed(2)}</div>
+      </div>
   </div>
   )
 }

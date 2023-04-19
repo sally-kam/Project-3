@@ -27,18 +27,17 @@ export default function App() {
   }, []);
 
   return (
-    <main className="background-color: rgb(192 132 252);"
-    >
+    <main>
       { user ?
         <>
-          <NavBar user={user} setUser={setUser} setCart={setCart}/>
+          <NavBar user={user} setUser={setUser} cart={cart} setCart={setCart}/>
           <Routes>
             {/* client-side route that renders the component instance if the path matches the url in the address bar */}
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage setProduct={setProduct}/>} />
-            <Route path="/products/:id" element={<ProductDetailPage product={product}/>} />
+            <Route path="/products/:id" element={<ProductDetailPage product={product} setCart={setCart}/>} />
             <Route path="/orders" element={<OrdersPage user={user} setUser={setUser} />} />
-            <Route path="/cart" element={<CartPage />} />
+            <Route path="/cart" element={<CartPage cart={cart} setCart={setCart}/>} />
             <Route path="/" element={<OrdersPage user={user} setUser={setUser} />} />
             {/* redirect to /orders/new if path in address bar hasn't matched a <Route> above */}
             <Route path="/*" element={<Navigate to="/products" />} />

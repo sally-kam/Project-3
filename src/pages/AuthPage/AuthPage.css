@@ -7,7 +7,7 @@
   border-radius: 2vmin;
 }
 
-.AuthPage h3 {
+.AuthPage div {
   margin-top: 4vmin;
   text-align: center;
   color: var(--text-light);

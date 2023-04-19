@@ -4,10 +4,9 @@ import LineProduct from '../../components/LineProduct/LineProduct';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import * as ordersAPI from '../../utilities/orders-api';
-import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import { useNavigate } from 'react-router-dom';
 
-export default function CartPage() {
+export default function CartPage({cart, setCart}) {
   // If your state will ultimately be an array, ALWAYS
   // initialize to an empty array
 const [order, setOrder] = useState({lineProducts:[]});
@@ -22,18 +21,16 @@ useEffect(function() {
 
 
   /*-- Event Handlers --*/
-  async function handleAddToOrder(itemId) {
-    const cart = await ordersAPI.addProductToCart(itemId);
-    setOrder(cart);
-  }
 
   async function handleChangeQty(itemId, newQty) {
     const updatedCart = await ordersAPI.setProductQtyInCart(itemId, newQty);
     setOrder(updatedCart);
+    setCart(updatedCart);
   }
 
   async function handleCheckout() {
     await ordersAPI.checkout();
+    setCart({totalQty:0});
     // programatically change client-side routes
     navigate('/orders');
   }
@@ -47,27 +44,37 @@ useEffect(function() {
   );
   
   return (
-    <div>
-      {lineProducts.length ?
-        <>
-          {lineProducts}
-          <section className="total">
-            {order.isPaid ?
-              <span className="right">TOTAL&nbsp;&nbsp;</span>
-              :
-              <button
-                className="outline-double hover:scale-105"
-                onClick={handleCheckout}
-                disabled={!lineProducts.length}
-              > CHECKOUT </button>
-            }
-            <span>Total Products: {order.totalQty}</span>
-            <span>Total Price: ${order.orderTotal.toFixed(2)}</span>
-          </section>
-        </>
-        :
+    <div className="bg-white">
+    <div className="bg-white">
+      {lineProducts.length ? (
+        <div className="bg-white">
+          <div className="bg-white grid grid-cols-2 gap-3">
+            {/* LineProducts column */}
+            <div className="bg-white">{lineProducts}</div>
+
+            {/* Section column */}
+            <section className="col-span-1 text-center">
+              <aside>Total Products: {order.totalQty}</aside>
+              <aside>Total Price: ${order.orderTotal.toFixed(2)}</aside>
+              {order.isPaid ? (
+                <aside className="right">TOTAL &nbsp;&nbsp;</aside>
+              ) : (
+                <button
+                  className="bg-white hover:scale-105"
+                  onClick={handleCheckout}
+                  disabled={!lineProducts.length}
+                >
+                  
+                  CHECKOUT
+                </button>
+              )}
+ 
+            </section>
+          </div>
+        </div>
+      ) : (
         <div className="cart">cart is empty</div>
-      }
+      )}
     </div>
-  )
-}
+  </div>
+)}

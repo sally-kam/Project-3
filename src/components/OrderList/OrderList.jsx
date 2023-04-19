@@ -10,7 +10,8 @@ export default function OrderList({ orders, selectedOrder, setSelectedOrder }) {
         />
       );
       return (
-        <main className="OrderList">
+        <main>
+          Order History:
           {orderListProducts}
         </main>
       );

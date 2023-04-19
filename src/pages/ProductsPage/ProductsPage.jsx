@@ -4,7 +4,6 @@ import './ProductsPage.css';
 import { Link, useNavigate } from 'react-router-dom';
 import SingleProduct from '../../components/SingleProduct/SingleProduct';
 import "./ProductsPage.css"
-import CategoryList from '../../components/CategoryList/CategoryList';
 
 export default function ProductsPage({setProduct}) {
   // If your state will ultimately be an array, ALWAYS
@@ -14,7 +13,8 @@ const [products, setProducts] = useState([]);
 const [categories, setCategories] = useState([]);
 const [filterProducts, setFilterProducts] = useState([]);
 const [activeCat, setActiveCat] = useState('');
-// const categoriesRef = useRef([]);
+const [showAll, setShowAll] = useState(false);
+
 
   /*-- Event Handlers --*/
   useEffect(function() {
@@ -35,19 +35,28 @@ const [activeCat, setActiveCat] = useState('');
     );
     setFilterProducts(filters);
     setActiveCat(cat);
+    setShowAll(false);
+
+  }
+  function handleShowAll() {
+    setShowAll(true);
+    setActiveCat('');
   }
 
 
   return (
     <>
-          <h1>All Products Page</h1>
+          <div>All Products Page</div>
     <main className="grid grid-cols-5 gap-3">
-
     <div className=" col-span-1">
+    <div className={showAll ? 'active bg-sky-700 hover:bg-sky-700' : 'bg-white hover:bg-pink-300'}
+      onClick={handleShowAll}>Show All</div>
+    <aside>Price Ranges:</aside>
+
       {categories.map((cat, i) =>
     <div
       key={i}
-      className={cat === activeCat ? 'active' : ''}
+      className={cat === activeCat ? 'active bg-sky-700 hover:bg-sky-700' : 'bg-white hover:bg-pink-300'}
       onClick={()=> handleCategoryClick(cat)}
       >
       {cat}
