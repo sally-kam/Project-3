@@ -14,28 +14,18 @@ export default function OrderDetail({order, handleChangeQty, handleCheckout}) {
     );
     return (
         <>
-    <div>OrderDetail</div>
-    <div className="line-item-container flex-ctr-ctr flex-col scroll-y">
-    {lineProducts.length ?
-          <>
-            {lineProducts}
-            <section className="total">
-              {order.isPaid ?
-                <span className="right">TOTAL&nbsp;&nbsp;</span>
-                :
-                <button
-                  className="btn-sm"
-                  onClick={handleCheckout}
-                  disabled={!lineProducts.length}
-                >CHECKOUT</button>
-              }
-              <span>{order.totalQty}</span>
-              <span className="right">${order.orderTotal.toFixed(2)}</span>
-            </section>
-          </>
+    <div className="section-heading">
+      <div>
+        {order.isPaid ?
+          <span>Order Id: {order.orderId}</span>
           :
-          <div className="cart">cart is empty</div>
+          <span>No Orders Yet.</span>
         }
+        <span>{new Date(order.updatedAt).toLocaleString()}</span>
+      </div>
+
+
+      
       </div>
     </>
   )
