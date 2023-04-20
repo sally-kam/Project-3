@@ -30,4 +30,8 @@ export function getAllForUser() {
   return sendRequest(`${BASE_URL}/user`);
 }
 
+export function deleteOrder(orderId) {
+  return sendRequest(`${BASE_URL}/${orderId}`, 'DELETE');
+}
+
 

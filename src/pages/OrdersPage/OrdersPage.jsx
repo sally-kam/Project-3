@@ -18,6 +18,12 @@ export default function OrdersPage({ user, setUser }) {
     getOrders();
   }, []);
 
+  async function handleDeleteOrder(orderId) {
+    console.log(orderId)
+    await ordersAPI.deleteOrder(orderId);
+    setOrders(orders.filter(order => order.orderId !== orderId));
+    setSelectedOrder(null);
+  }
   return (
     <main>
       
@@ -25,17 +31,21 @@ export default function OrdersPage({ user, setUser }) {
         
         {orders.length > 0 ? (
           <div className="text-left grid grid-cols-3 gap-3">
-            <div className="col-start-1 col-end-2">
+            <div className="col-start-1 col-end-2"> 
             <OrderList
               orders={orders}
               selectedOrder={selectedOrder}
               setSelectedOrder={setSelectedOrder}
+              handleDeleteOrder={handleDeleteOrder}
             />
           </div>
       <div className=" col-span-2">
         {selectedOrder ? (
-          
-          <OrderDetail order={selectedOrder} />
+          <div>
+            
+            <OrderDetail order={selectedOrder} />
+            
+          </div>
         ) : (
           <p>Select an order to view its details</p>
         )}

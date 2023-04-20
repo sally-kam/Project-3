@@ -6,7 +6,8 @@ module.exports = {
   addToCart,
   setProductQtyInCart,
   checkout,
-  forUser
+  forUser,
+  deleteOrder
 };
 
 async function forUser(req, res) {
@@ -42,3 +43,10 @@ async function checkout(req, res) {
   await cart.save();
   res.json(cart);
 }
+
+async function deleteOrder(req, res) {
+  const orderId = req.body._id;
+  await Order.findByIdAndDelete(orderId);
+  res.json({message: "order deleted successfully"});
+}
+

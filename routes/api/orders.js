@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const ordersCtrl = require('../../controllers/api/orders');
 
+
 // GET /api/orders/cart
 router.get('/cart', ordersCtrl.cart);
 // GET /api/orders/user
@@ -12,6 +13,8 @@ router.post('/cart/products/:id', ordersCtrl.addToCart);
 router.post('/cart/checkout', ordersCtrl.checkout);
 // POST /api/orders/cart/qty
 router.put('/cart/qty', ordersCtrl.setProductQtyInCart);
+// DELETE /api/orders/
+router.delete('/:id', ordersCtrl.deleteOrder)
 
 module.exports = router;
 

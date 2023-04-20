@@ -1,7 +1,7 @@
 import React from 'react'
 import LineProduct from '../LineProduct/LineProduct';
 import OrderLineProduct from '../OrderLineProduct/OrderLineProduct';
-export default function OrderDetail({order, selectedOrder}) {
+export default function OrderDetail({order, setOrders}) {
     if (!order) return null;
 
     const orderLineProducts = order.lineProducts.map(product =>
@@ -14,7 +14,7 @@ export default function OrderDetail({order, selectedOrder}) {
     console.log("THESE ARE THE LINE PRODUCTS", orderLineProducts[0]);
     return (
         <>
-        Order Details
+        Order Details:
     <div className="text-center">
     <span>Order Id: {order.orderId}</span>
     <span>{new Date(order.updatedAt).toLocaleString()}</span>

@@ -9,20 +9,20 @@ export default function NavBar({user, setUser, cart}) {
     setUser(null)
     navigate('/')
   }
-console.log("CARTTTT",cart);
+
   return (
-    <nav className="text-center">
-      <Link className="hover:bg-pink-300" to="/">Home</Link>
+    <nav className="text-center bg-red-300">
+      <Link className="bg-red-300 hover:bg-white" to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link className="hover:bg-pink-300" to="/products">All Products</Link>
+      <Link className="bg-red-300 hover:bg-white" to="/products">All Products</Link>
       &nbsp; | &nbsp; 
-      <Link className="hover:bg-pink-300" to="/orders">All Orders</Link>
+      <Link className="bg-red-300 hover:bg-white" to="/orders">My Orders</Link>
       &nbsp; | &nbsp;
       Welcome, {user.name}!
       &nbsp; | &nbsp;
-      <Link className="hover:bg-pink-300" to='' onClick={handleLogOut}>Log Out</Link>
+      <Link className="bg-red-300 hover:bg-white" to='' onClick={handleLogOut}>Log Out</Link>
       &nbsp; | &nbsp;
-      <Link className="hover:bg-pink-300" to="/cart">Cart ({cart.totalQty})</Link>
+      <Link className="bg-red-300 hover:bg-white" to="/cart">Cart ({cart.totalQty})</Link>
     </nav>
   )
 }
