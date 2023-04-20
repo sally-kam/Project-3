@@ -9,7 +9,7 @@ import ProductsPage from '../ProductsPage/ProductsPage';
 import OrdersPage from '../OrdersPage/OrdersPage';
 import CartPage from '../CartPage/CartPage';
 import ProductDetailPage from '../ProductDetailPage/ProductDetailPage';
-import HomePage from '../HomePage/HomePage';
+import HomePage from '../HomePage/Homepage';
 import { useEffect } from 'react';
 import * as ordersAPI from '../../utilities/orders-api';
 
