@@ -16,12 +16,13 @@ export default function SingleProduct({product, setProduct}) {
 }
 
   return (
-    <div className="bg-white hover:scale-105">
+    <div className="outline bg-white hover:scale-105 hover:outline hover:outline-offset-2 hover:outline-red-500">
 
     <div onClick={handleSingleProduct} className="bg-white">
-    <img className=" object-cover bg-white h-48 w-96" src={product.image}></img>
-    <div className="bg-white">{product.name}</div>
-    <div className="bg-white">${product.price}</div>
+    <img className=" object-contain bg-white h-48 w-96" src={product.image}></img>
+    <div className="bg-white text-center">{product.name}</div>
+    <div className="bg-white text-center">${product.price}</div>
+    <div className="bg-white text-center">View details...</div>
     </div>
 
     </div>

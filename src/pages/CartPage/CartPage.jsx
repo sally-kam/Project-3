@@ -44,32 +44,33 @@ useEffect(function() {
   );
   
   return (
-    <div className="bg-white">
-    <div className="bg-white">
+    <div className="">
+    <div className="">
       {lineProducts.length ? (
-        <div className="bg-white">
-          <div className="bg-white grid grid-cols-2 gap-3">
-            {/* LineProducts column */}
-            <div className="bg-white">{lineProducts}</div>
+        <div className="">
+          <div className="grid grid-cols-2 gap-3">
+            
+            <div className="">{lineProducts}</div>
 
-            {/* Section column */}
-            <section className="col-span-1 text-center">
-              <aside>Total Products: {order.totalQty}</aside>
-              <aside>Total Price: ${order.orderTotal.toFixed(2)}</aside>
+           
+            <div className="outline col-span-1 text-center">
               {order.isPaid ? (
                 <aside className="right">TOTAL &nbsp;&nbsp;</aside>
               ) : (
+                <div>
+              <aside>Total Products: {order.totalQty}</aside>
+              <aside>Total Price: ${order.orderTotal.toFixed(2)}</aside>
                 <button
                   className="bg-white hover:scale-105"
                   onClick={handleCheckout}
                   disabled={!lineProducts.length}
                 >
-                  
                   CHECKOUT
                 </button>
+                </div>
               )}
  
-            </section>
+            </div>
           </div>
         </div>
       ) : (

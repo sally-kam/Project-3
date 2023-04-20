@@ -30,7 +30,7 @@ export default function OrdersPage({ user, setUser }) {
     <main>
       
       <div className="text-left">
-        <div className="text-3xl text-center">My Orders: </div>
+        <div className="text-xl text-center">My Orders: </div>
         {orders.length > 0 ? (
           <div className="text-left grid grid-cols-3 gap-3">
             <div className="col-start-1 col-end-2"> 
@@ -55,7 +55,7 @@ export default function OrdersPage({ user, setUser }) {
 
           </div>
         ) : (
-          <p className="text-xl font-bold text-center">No orders yet</p>
+          <p className="text-lg font-bold text-center">No orders yet</p>
         )}
       </div>
 

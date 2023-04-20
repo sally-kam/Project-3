@@ -47,17 +47,17 @@ const [showAll, setShowAll] = useState(false);
 
   return (
     <>
-          <div className="text-center bg-red-300">All Products Page </div>
-    <main className="grid grid-cols-5 gap-3">
+          <div className="text-center ">All Products Page </div>
+    <main className="grid grid-cols-5 gap-3 p-2">
     <div className=" bg-red-300 col-span-1">
 
-    <aside className="bg-red-300">Price Ranges:</aside>
-    <div className={showAll ? 'active bg-red-400 hover:bg-white' : 'bg-red-300 hover:bg-white'}
+    <aside className="text-center bg-red-300">Categories:</aside>
+    <div className={showAll ? 'active text-center bg-red-400 hover:bg-white' : ' text-center bg-red-300 hover:bg-white'}
       onClick={handleShowAll}>Show All</div>
       {categories.map((cat, i) =>
     <div
       key={i}
-      className={cat === activeCat ? 'active bg-red-400 hover:bg-white' : 'bg-red-300 hover:bg-white'}
+      className={cat === activeCat ? 'active text-center bg-red-400 hover:bg-white' : ' text-center bg-red-300 hover:bg-white'}
       onClick={()=> handleCategoryClick(cat)}
       >
       {cat}

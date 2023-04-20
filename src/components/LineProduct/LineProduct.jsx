@@ -4,7 +4,7 @@ export default function LineProduct({lineProduct, isPaid, handleChangeQty}) {
 
     console.log(lineProduct)
   return (
-    <div className="border-4 grid grid-cols-2 gap-3">
+    <div className="outline grid grid-cols-2 gap-3">
       
         <img className="object-scale-down h-48 w-96" src={lineProduct.product.image}></img> 
         <div className="text-right">

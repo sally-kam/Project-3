@@ -15,7 +15,7 @@ export default function OrderDetail({order, setOrders}) {
     return (
         <>
         Order Details:
-    <div className="text-center">
+    <div className="outline text-center">
     <span>Order Id: {order.orderId}</span>
     <span>{new Date(order.updatedAt).toLocaleString()}</span>
     <div className="text-right">{orderLineProducts}</div>
