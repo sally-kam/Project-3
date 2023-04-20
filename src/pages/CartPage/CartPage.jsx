@@ -73,7 +73,7 @@ useEffect(function() {
           </div>
         </div>
       ) : (
-        <div className="cart">cart is empty</div>
+        <div className="text-center">Cart is empty.</div>
       )}
     </div>
   </div>
