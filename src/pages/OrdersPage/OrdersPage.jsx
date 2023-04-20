@@ -21,7 +21,9 @@ export default function OrdersPage({ user, setUser }) {
   async function handleDeleteOrder(orderId) {
     console.log(orderId)
     await ordersAPI.deleteOrder(orderId);
-    setOrders(orders.filter(order => order.orderId !== orderId));
+    const orderFilter = orders.filter(order => order.id !== orderId)
+    console.log("this is the orderFilter",orderFilter)
+    setOrders(orderFilter);
     setSelectedOrder(null);
   }
   return (

@@ -14,7 +14,7 @@ export default function OrderListProduct({ order, isSelected, setSelectedOrder, 
       <div className="smaller">{new Date(order.createdAt).toLocaleDateString()}</div>
     </div>
     <div className="text-right">
-    <button onClick={() => handleDeleteOrder(order.orderId)}>✖️</button>
+    <button onClick={() => handleDeleteOrder(order._id)}>✖️</button>
       <div>{order.totalQty} Product{order.totalQty > 1 && 's'}</div>
       <div>Total: ${order.orderTotal.toFixed(2)}</div>
     </div>
