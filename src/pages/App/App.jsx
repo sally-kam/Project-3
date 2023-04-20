@@ -13,6 +13,7 @@ import HomePage from '../HomePage/HomePage';
 import { useEffect } from 'react';
 import * as ordersAPI from '../../utilities/orders-api';
 
+
 export default function App() {
   const [user, setUser] = useState(getUser());
   const [product, setProduct] = useState(null)
