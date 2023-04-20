@@ -46,7 +46,7 @@ const [showAll, setShowAll] = useState(false);
 
   return (
     <>
-          <div>All Products Page</div>
+          <div>All Products Page </div>
     <main className="grid grid-cols-5 gap-3">
     <div className=" col-span-1">
     <div className={showAll ? 'active bg-red-400 hover:bg-white' : 'bg-red-300 hover:bg-white'}
