@@ -2,12 +2,12 @@ import React from 'react'
 
 export default function OrderListProduct({ order, isSelected, setSelectedOrder, handleDeleteOrder }) {
   return (
-    <div className="bg-white ">
+    <div className="bg-white hover:bg-red-300">
     <div
     className= {`OrderListProduct${isSelected ? 'selected active bg-red-400 hover:bg-red-400' : 'bg-white hover:bg-red-300'}`}
     onClick={() => setSelectedOrder(order)}
   >
-    <div className="grid grid-cols-2 gap-3">
+    <div className="grid grid-cols-2 gap-3 hover:outline-double outline-">
     <div>
     <div>Order Id: </div>
       <div>{order.orderId}</div>

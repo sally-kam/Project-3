@@ -46,7 +46,8 @@ async function checkout(req, res) {
 
 async function deleteOrder(req, res) {
   const orderId = req.body._id;
-  await Order.findByIdAndDelete(orderId);
-  res.json({message: "order deleted successfully"});
+  console.log("this is the orderID", orderId)
+  const deletedOrder= await Order.findByIdAndDelete(orderId);
+  res.json({deletedOrder});
 }
 

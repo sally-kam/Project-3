@@ -16,6 +16,7 @@ const [activeCat, setActiveCat] = useState('');
 const [showAll, setShowAll] = useState(false);
 
 
+
   /*-- Event Handlers --*/
   useEffect(function() {
     async function getProducts() {
