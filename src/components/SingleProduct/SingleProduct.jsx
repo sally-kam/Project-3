@@ -12,7 +12,6 @@ export default function SingleProduct({product, setProduct}) {
   function handleSingleProduct() {
   setProduct(product);
   navigate(`/products/${product.name}`);
-  console.log(navigate)
 }
 
   return (

@@ -6,7 +6,6 @@ module.exports = {
 };
 
 async function index(req, res) {
-  console.log('this is the index route')
   const products = await Product.find({}).sort('name').populate('category').exec();
   // re-sort based upon the sortOrder of the categories
   products.sort((a, b) => a.category.sortOrder - b.category.sortOrder);

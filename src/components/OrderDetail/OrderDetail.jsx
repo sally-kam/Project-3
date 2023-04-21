@@ -11,7 +11,7 @@ export default function OrderDetail({order, setOrders}) {
         key={product._id}
       />
     );
-    console.log("THESE ARE THE LINE PRODUCTS", orderLineProducts[0]);
+
     return (
         <>
         Order Details:

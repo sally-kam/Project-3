@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function LineProduct({lineProduct, isPaid, handleChangeQty}) {
 
-    console.log(lineProduct)
+
   return (
     <div className="outline grid grid-cols-2 gap-3">
       

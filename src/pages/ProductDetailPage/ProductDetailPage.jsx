@@ -8,8 +8,6 @@ import * as ordersAPI from '../../utilities/orders-api';
 
 export default function ProductDetailPage({product, setCart}) {
     const {id} = useParams();
-    console.log(id)
-    console.log("this is", product)
 
 
     async function handleAddToOrder(productId) {
