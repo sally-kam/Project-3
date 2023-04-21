@@ -1,8 +1,6 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 
 export default function SingleProduct({product, setProduct}) {
   const navigate = useNavigate();

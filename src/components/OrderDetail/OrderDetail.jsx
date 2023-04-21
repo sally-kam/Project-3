@@ -1,5 +1,4 @@
 import React from 'react'
-import LineProduct from '../LineProduct/LineProduct';
 import OrderLineProduct from '../OrderLineProduct/OrderLineProduct';
 export default function OrderDetail({order, setOrders}) {
     if (!order) return null;

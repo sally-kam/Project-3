@@ -1,7 +1,5 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import * as ordersAPI from '../../utilities/orders-api';
 
 

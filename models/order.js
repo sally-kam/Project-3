@@ -26,20 +26,25 @@ const orderSchema = new Schema({
   timestamps: true,
   toJSON: { virtuals: true }
 });
-
+// calculates the total price of a order but summing up the extended price of each line product
 orderSchema.virtual('orderTotal').get(function() {
   return this.lineProducts.reduce((total, product) => total + product.extPrice, 0);
 });
 
+// calculates the total quantity of products in an order by summing up the quantity of each line product in the order
 orderSchema.virtual('totalQty').get(function() {
   return this.lineProducts.reduce((total, product) => total + product.qty, 0);
 });
 
+// generates a new order identifier by taking the last 6 characters of the order._id from the database and converting them to uppercase
 orderSchema.virtual('orderId').get(function() {
   return this.id.slice(-6).toUpperCase();
 });
 
+
 // Static methods are callable on the Model (Order)
+
+// finds or creates a user's unpaid order by searching for an order with userId and isPaid:false, if no orders exist, it creates an upsert
 orderSchema.statics.getCart = function(userId) {
   // 'this' is bound to the model (don't use an arrow function)
   // return the promise that resolves to a cart (the user's unpaid order)
@@ -54,6 +59,7 @@ orderSchema.statics.getCart = function(userId) {
 };
 
 // Instance methods are callable on the document (instance)
+// adds a products to the cart by searching for an existing line product with the given productId and updating the quantity by 1. if the product doesn't exist a new line product is added to the cart with a quantity of 1.
 orderSchema.methods.addProductToCart = async function(productId) {
   const cart = this;
   // Check if the product already exists in the cart
@@ -68,7 +74,8 @@ orderSchema.methods.addProductToCart = async function(productId) {
   return cart.save();
 }
 
-// Instance method to set an product's qty in the cart (will add product if does not exist)
+
+// Instance method to set an product's qty in the cart by searching for the existing line product with the given productId and updating the quantity to the newQty. If the product does not exist in the cart and newQty is greater than 0, a new line product is added with the given newQty value. If the product does not exist in the cart and newQty is less than or equal to 0, the line product will be removed from the cart.
 orderSchema.methods.setProductQty = function(productId, newQty) {
   // this keyword is bound to the cart (order doc)
   const cart = this;
