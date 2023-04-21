@@ -51,7 +51,7 @@
 #### Cart Page
 <img src="https://i.imgur.com/Mz6WaL5.png" /></a>
 
-
+</div>
 ---
 
 ## The Code Behind The Program:
