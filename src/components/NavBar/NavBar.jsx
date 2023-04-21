@@ -11,19 +11,28 @@ export default function NavBar({user, setUser, cart}) {
   }
 
   return (
-    <nav className="text-center bg-red-300">
-      <Link className="bg-red-300 hover:bg-white" to="/">Home</Link>
+    <div className="
+    bg-gradient-to-r
+    from-red-500
+    via-purple-500
+    to-green-500
+    background-animate">
+    <nav className="text-center">
+      <Link className=" text-white hover:border" to="/">Home</Link>
       &nbsp; | &nbsp;
-      <Link className="bg-red-300 hover:bg-white" to="/products">All Products</Link>
+      <Link className=" text-white hover:border" to="/products">All Products</Link>
       &nbsp; | &nbsp; 
-      <Link className="bg-red-300 hover:bg-white" to="/orders">My Orders</Link>
+     <span className="text-white">
+         Welcome, {user.name}!
+      </span>
+  &nbsp; | &nbsp;
+      <Link className=" text-white hover:border" to="/orders">My Orders</Link> 
       &nbsp; | &nbsp;
-      Welcome, {user.name}!
+      <Link className=" text-white hover:border" to='' onClick={handleLogOut}>Log Out</Link>
       &nbsp; | &nbsp;
-      <Link className="bg-red-300 hover:bg-white" to='' onClick={handleLogOut}>Log Out</Link>
-      &nbsp; | &nbsp;
-      <Link className="bg-red-300 hover:bg-white" to="/cart">Cart ({cart.totalQty})</Link>
+      <Link className="text-white hover:border" to="/cart">Cart ({cart.totalQty})</Link>
     </nav>
+    </div>
   )
 }
 

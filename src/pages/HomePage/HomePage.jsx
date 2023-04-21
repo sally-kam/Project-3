@@ -5,13 +5,13 @@ export default function HomePage() {
   return (
     <>
     <div className="text-3xl text-center">Welcome to
-    <div className=" text-5xl text-transparent bg-clip-text bg-gradient-to-r to-red-900 from-red-300"> Canvas MarketPlace</div>
+    <div className="animate-text bg-gradient-to-r from-red-500 via-purple-500 to-green-500 bg-clip-text text-transparent text-8xl font-black"> Canvas MarketPlace</div>
     </div>
   <div className="text-center">
     <img className="text-center object-center h-50 w-60"src="https://i.imgur.com/NklP0nn.png"></img>
   </div>
     <div className="text-xl text-center">
-    <Link className="outline text-center hover:scale-105" to="/products">View All Products</Link>
+    <Link className="outline text-center hover:outline-double" to="/products">View All Products</Link>
     </div>
     </>
   )

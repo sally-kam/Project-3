@@ -49,15 +49,15 @@ const [showAll, setShowAll] = useState(false);
     <>
           <div className="text-center ">All Products Page </div>
     <main className="grid grid-cols-5 gap-3 p-2">
-    <div className=" bg-red-300 col-span-1">
+    <div className="  col-span-1">
 
     <aside className="text-center bg-red-300">Categories:</aside>
-    <div className={showAll ? 'active text-center bg-red-400 hover:bg-white' : ' text-center bg-red-300 hover:bg-white'}
+    <div className={showAll ? 'active text-center text-white bg-red-400 hover:text-white' : ' text-center bg-red-300 hover:bg-white'}
       onClick={handleShowAll}>Show All</div>
       {categories.map((cat, i) =>
     <div
       key={i}
-      className={cat === activeCat ? 'active text-center bg-red-400 hover:bg-white' : ' text-center bg-red-300 hover:bg-white'}
+      className={cat === activeCat ? 'active text-center text-white bg-red-400 hover:text-white' : ' text-center bg-red-300 hover:bg-white'}
       onClick={()=> handleCategoryClick(cat)}
       >
       {cat}
