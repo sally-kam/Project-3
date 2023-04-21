@@ -56,7 +56,7 @@
 
 ## The Code Behind The Program:
 There are multiple sections that have set this website up but my favorite code was the all products page.
-```
+```js
 export default function ProductsPage({setProduct}) {
   // If your state will ultimately be an array, ALWAYS
   // initialize to an empty array
