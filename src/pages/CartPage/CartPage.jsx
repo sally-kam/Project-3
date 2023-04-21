@@ -59,7 +59,7 @@ useEffect(function() {
               ) : (
                 <div>
               <aside>Total Products: {order.totalQty}</aside>
-              <aside>Total Price: ${order.orderTotal.toFixed(2)}</aside>
+              <aside>Order Total: ${order.orderTotal.toFixed(2)}</aside>
                 <button
                   className="outline bg-white hover:scale-105"
                   onClick={handleCheckout}

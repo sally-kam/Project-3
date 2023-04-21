@@ -14,6 +14,7 @@ export default function AuthPage({ setUser }) {
     via-purple-500
     to-green-500
     background-animate">
+      <section className="pt-20">
     <div className="text-3xl text-white text-center">Welcome to
     <div className=" text-5xl text-white text-transparent bg-clip-text bg-gradient-to-r to-red-900 from-red-300"> Canvas MarketPlace</div>
     </div>
@@ -33,6 +34,8 @@ export default function AuthPage({ setUser }) {
           </div>
        
     </div>
+    </section>
+
     </div >
   );
 }

@@ -21,7 +21,7 @@ export default function SingleProduct({product, setProduct}) {
     <img className=" object-contain bg-white h-48 w-96" src={product.image}></img>
     <div className="bg-white text-center">{product.name}</div>
     <div className="bg-white text-center">${product.price}</div>
-    <div className="bg-white text-center">View details...</div>
+    <div className="underline bg-white text-center">View details...</div>
     </div>
 
     </div>
