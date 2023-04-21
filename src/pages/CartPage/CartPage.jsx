@@ -61,7 +61,7 @@ useEffect(function() {
               <aside>Total Products: {order.totalQty}</aside>
               <aside>Total Price: ${order.orderTotal.toFixed(2)}</aside>
                 <button
-                  className="bg-white hover:scale-105"
+                  className="outline bg-white hover:scale-105"
                   onClick={handleCheckout}
                   disabled={!lineProducts.length}
                 >

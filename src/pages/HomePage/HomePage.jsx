@@ -11,7 +11,7 @@ export default function HomePage() {
     <img className="text-center object-center h-50 w-60"src="https://i.imgur.com/NklP0nn.png"></img>
   </div>
     <div className="text-xl text-center">
-    <Link className="text-center hover:bg-white" to="/products">View All Products</Link>
+    <Link className="outline text-center hover:scale-105" to="/products">View All Products</Link>
     </div>
     </>
   )

@@ -23,7 +23,7 @@ export default function ProductDetailPage({product, setCart}) {
         <div className="text-2xl font-bold m-5">{product.name}</div>
         <div className="text-left">Description: {product.description}</div>
         <div className="text-left">Price: $ {product.price}</div>
-        <button className="bg-white hover:scale-105"
+        <button className="outline bg-white hover:scale-105"
         onClick={() => handleAddToOrder(product._id)}
         > Add To Cart </button>
        </div>
